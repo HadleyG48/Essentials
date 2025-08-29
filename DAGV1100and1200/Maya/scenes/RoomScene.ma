@@ -1,6 +1,6 @@
 //Maya ASCII 2026 scene
 //Name: RoomScene.ma
-//Last modified: Tue, Aug 26, 2025 05:13:01 PM
+//Last modified: Tue, Aug 26, 2025 05:15:34 PM
 //Codeset: 1252
 requires maya "2026";
 requires "mtoa" "5.5.3";
@@ -10,7 +10,7 @@ fileInfo "product" "Maya 2026";
 fileInfo "version" "2026";
 fileInfo "cutIdentifier" "202507081222-4d6919b75c";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26100)";
-fileInfo "UUID" "DAE0EBFD-444F-E04C-A5A3-4FBDDC1AD7F4";
+fileInfo "UUID" "6442148E-42C7-5793-AF71-4FAAF3A8A338";
 createNode transform -s -n "persp";
 	rename -uid "F503B605-4863-DA40-4B7A-8AB6BE06C18C";
 	setAttr ".v" no;
@@ -119,20 +119,20 @@ createNode mesh -n "pCubeShape3" -p "pCube4";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "36BE57B3-424E-3E8A-AF40-669FB74DA3EF";
+	rename -uid "52FDC7A6-46E1-63CC-67DB-E5B797E2CF93";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "0E9713C6-4287-5BDB-8D69-DDA0C9583B15";
+	rename -uid "0D85445B-49E5-0B1A-C244-E685C258D409";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "EAB43ED0-4793-551C-55D0-05BDDD405DA4";
+	rename -uid "69A76A41-4020-FB6E-A294-5282418475EC";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "87A38028-40DB-4121-D76C-91859DCF867F";
+	rename -uid "1636EC43-4A85-BCC2-50C2-53A37F51417D";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "124641F6-4A4D-AE3B-1FD5-C09E8D90FA6C";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "4A7C1E65-4EBE-5A95-40F7-C6BBD38DC88C";
+	rename -uid "95C4B784-4DA4-095E-1EAD-ADABE69DDE7C";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "07E30285-4EA2-5405-7593-618994DAE980";
 	setAttr ".g" yes;
@@ -193,23 +193,12 @@ createNode polyBevel3 -n "polyBevel1";
 createNode polyTweak -n "polyTweak1";
 	rename -uid "2C9038AF-49FA-9B59-61A5-F39DA7C69A22";
 	setAttr ".uopa" yes;
-	setAttr -s 18 ".tk";
-	setAttr ".tk[32]" -type "float3" 0.029659212 0 0.032956153 ;
-	setAttr ".tk[33]" -type "float3" -0.029659241 0 0.032956183 ;
-	setAttr ".tk[34]" -type "float3" -0.029659241 0 -0.032956094 ;
-	setAttr ".tk[35]" -type "float3" 0.029659212 0 -0.032956094 ;
-	setAttr ".tk[36]" -type "float3" 0.029659212 0 0.029659212 ;
-	setAttr ".tk[37]" -type "float3" -0.029659241 0 0.029659212 ;
-	setAttr ".tk[38]" -type "float3" -0.029659301 0 -0.029659241 ;
-	setAttr ".tk[39]" -type "float3" 0.029659212 0 -0.029659241 ;
-	setAttr ".tk[40]" -type "float3" 0.032956004 0 -0.029659212 ;
-	setAttr ".tk[41]" -type "float3" 0.032956004 0 0.029659241 ;
-	setAttr ".tk[42]" -type "float3" -0.032956243 0 0.029659241 ;
-	setAttr ".tk[43]" -type "float3" -0.032956243 0 -0.029659212 ;
-	setAttr ".tk[44]" -type "float3" 0.032956034 0 -0.032956064 ;
-	setAttr ".tk[45]" -type "float3" 0.032956034 0 0.032956183 ;
-	setAttr ".tk[46]" -type "float3" -0.032956213 0 0.032956183 ;
-	setAttr ".tk[47]" -type "float3" -0.032956213 0 -0.032956064 ;
+	setAttr -s 16 ".tk[32:47]" -type "float3"  0.029659212 0 0.032956153
+		 -0.029659241 0 0.032956183 -0.029659241 0 -0.032956094 0.029659212 0 -0.032956094
+		 0.029659212 0 0.029659212 -0.029659241 0 0.029659212 -0.029659301 0 -0.029659241
+		 0.029659212 0 -0.029659241 0.032956004 0 -0.029659212 0.032956004 0 0.029659241 -0.032956243
+		 0 0.029659241 -0.032956243 0 -0.029659212 0.032956034 0 -0.032956064 0.032956034
+		 0 0.032956183 -0.032956213 0 0.032956183 -0.032956213 0 -0.032956064;
 createNode polyCircularize -n "polyCircularize1";
 	rename -uid "ECD83F78-4B51-DD68-215D-BFB1018A256E";
 	setAttr ".uopa" yes;
@@ -561,8 +550,6 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 connectAttr "polySmartExtrude2.out" "pCubeShape1.i";
 connectAttr "polySmoothFace2.out" "pCubeShape2.i";
 connectAttr "polyCube4.out" "pCubeShape3.i";
